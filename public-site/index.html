@@ -248,6 +248,50 @@ ol, ul { padding: 0; list-style: none; }
 .about-ending a + a { padding-left: 2rem; border-left: 1px solid var(--line); }
 .about-ending svg { color: var(--accent-soft); }
 
+/* Wide but short desktops need height-aware limits: keep the editorial scale without letting vw values dominate the viewport. */
+@media (min-width: 901px) and (max-height: 900px) {
+  .home-hero { gap: clamp(2.25rem, min(6vw, 10svh), 5rem); }
+  .home-hero h1 { font-size: clamp(5rem, min(8.6vw, 17svh), 8.1rem); }
+  .home-statement { font-size: clamp(1.55rem, min(2.2vw, 5svh), 2.35rem); }
+  .home-portrait { width: min(100%, min(35rem, 59svh)); }
+
+  .home-work, .home-tools { padding-block: clamp(7rem, min(13vw, 20svh), 11rem); }
+  .editorial-heading { margin-bottom: clamp(3rem, min(6vw, 11svh), 5rem); }
+  .editorial-heading h2 { font-size: clamp(4rem, min(8vw, 15svh), 7.3rem); }
+  .editorial-heading--compact h2 { font-size: clamp(3.7rem, min(6.5vw, 13svh), 6.1rem); }
+  .home-work-layout { gap: clamp(3rem, min(8vw, 13svh), 7rem); }
+  .work-context { padding-top: clamp(2rem, min(6vw, 11svh), 5rem); }
+  .work-deck { font-size: clamp(1.7rem, min(2.5vw, 4.5svh), 2.35rem); }
+  .home-comparison { width: min(100%, 38rem, 64svh); }
+  .home-about { padding-block: clamp(6rem, min(11vw, 16svh), 9rem); }
+
+  .about-opening { min-height: calc(88svh - 5rem); padding-block: clamp(4.5rem, 8svh, 6rem); }
+  .about-opening .chapter-index { margin-bottom: clamp(3rem, min(7vw, 9svh), 5rem); }
+  .about-opening h1 { font-size: clamp(5rem, min(10vw, 18svh), 9.5rem); }
+  .about-opening-line { margin-top: clamp(3rem, min(5vw, 8svh), 5rem); font-size: clamp(2rem, min(4vw, 8svh), 4.1rem); }
+
+  .about-editing { padding-block: clamp(6.5rem, min(11vw, 18svh), 10rem); }
+  .about-section-heading { margin-bottom: clamp(3.5rem, min(7vw, 12svh), 6rem); }
+  .about-section-heading h2 { font-size: clamp(4.2rem, min(8vw, 15svh), 7.3rem); }
+  .editing-composition { gap: clamp(2rem, min(5vw, 9svh), 5rem); }
+
+  .rubix-inner, .about-building { padding-block: clamp(7rem, min(13vw, 20svh), 11rem); }
+  .rubix-copy { gap: 1rem clamp(3rem, min(6vw, 10svh), 6rem); }
+  .rubix-description { font-size: clamp(2.1rem, min(4vw, 8svh), 4.1rem); }
+  .rubix-media { margin-top: clamp(5rem, min(9vw, 13svh), 7.5rem); }
+  .rubix-workflow { margin-top: clamp(4.5rem, min(8vw, 12svh), 7rem); }
+  .building-statement p { font-size: clamp(3rem, min(6vw, 12svh), 6rem); }
+  .building-sequence { margin: clamp(4rem, min(8vw, 12svh), 6.5rem) 0 2.5rem; }
+  .about-ending { min-height: 14rem; }
+}
+
+@media (min-width: 901px) and (max-height: 760px) {
+  .home-portrait { width: min(100%, min(35rem, 56svh)); }
+  .home-work, .home-tools, .rubix-inner, .about-building { padding-block: clamp(6.5rem, min(12vw, 18svh), 9rem); }
+  .home-comparison { width: min(100%, 38rem, 60svh); }
+  .about-editing { padding-block: clamp(6rem, min(10vw, 16svh), 8.5rem); }
+}
+
 html[data-motion="ready"] [data-reveal] { opacity: 0; transform: translateY(1.5rem); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1), clip-path .9s cubic-bezier(.2,.7,.2,1); }
 html[data-motion="ready"] [data-reveal-variant="line"] { transform: translateY(.8rem); }
 html[data-motion="ready"] [data-reveal-variant="text"] { clip-path: inset(0 0 22% 0); transform: translateY(1.2rem); }
